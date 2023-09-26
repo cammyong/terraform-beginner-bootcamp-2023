@@ -119,7 +119,32 @@ All futre workspaces launched will set the env vars for all bash terminals opene
 You can also set env vars in the `gitpod.yml` but this can only contain non-sensitive env vars.
 
 
+### AWS CLI Installation
+
+AWS CLI is install for the project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
 [Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+
+
+We can check if our AWS credentials is configured correctly by running the following AWS CLI command
+
+```sh
+aws sts get-caller-identity
+```
+
+If it is successful you should see a json payload return that looks like this:
+
+```json
+{
+    "UserId": "AIDAXMHMFWASDFGGYTREDFGHUIH",
+    "Account": "12345678903",
+    "Arn": "arn:aws:iam::123456789012:user/terraform-bootcamp"
+}
+```
+
+We will need to generate AWS CLI credits from IAM user in order to use AWS CLI.
+
 
 
 https://en.wikipedia.org/wiki/File-system_permissions
@@ -127,3 +152,7 @@ https://en.wikipedia.org/wiki/File-system_permissions
 https://en.wikipedia.org/wiki/Chmod
 
 https://www.gitpod.io/docs/configure/workspaces/tasks
+
+[Getting Started Install (AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+[AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
